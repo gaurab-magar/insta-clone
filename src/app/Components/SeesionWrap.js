@@ -8,4 +8,4 @@ const SessionWrpper = ({children})=>{
         </SessionProvider>
     )
 }
-export default SessionWrpper;
+export default SessionWrpper; 
