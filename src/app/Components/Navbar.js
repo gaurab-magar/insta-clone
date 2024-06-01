@@ -9,6 +9,8 @@ import Image from 'next/image';
 import { useState } from 'react';
 import  Modal  from 'react-modal';
 import { IoIosAddCircleOutline } from "react-icons/io";
+import { IoIosCamera } from "react-icons/io";
+import { IoIosCloseCircle } from "react-icons/io";
 
 const Navbar = () => {
   const {data: session} = useSession();
@@ -41,9 +43,13 @@ const Navbar = () => {
       </div>
         {
           isOpen && 
-          <Modal isOpen={isOpen} onRequestClose={() => setIsOpen(false)} ariaHideApp={false} className="max-w-lg  absolute top-52 left-52 w-[90%]  flex flex-col items-center justify-center gap-5 bg-white p-5 rounded-md shadow-md">
-            <h2>Modal is open!</h2>
-            <button onClick={() => setIsOpen(false)}>Close</button>
+          <Modal isOpen={isOpen} onRequestClose={() => setIsOpen(false)} ariaHideApp={false}  className=" absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  md:w-[30%] w-[80%] flex flex-col items-center justify-center gap-5 bg-white p-5 rounded-md shadow-2xl border-none">
+            <button onClick={() => setIsOpen(false)} className='absolute top-3 right-3 focus:scale-110 hover:scale-110 duration-200' >
+              <IoIosCloseCircle className='text-pink-700 text-2xl' />
+            </button>
+            <IoIosCamera className='text-4xl' />
+            <p>Please enter your caption..</p>
+            <button className='w-full rounded-md font-semibold bg-pink-600 text-white py-1 '>Upload Post</button>
           </Modal>
         }
     </header>
